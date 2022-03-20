@@ -1,26 +1,22 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Hello123"/>
+  <header></header>
+    <Main/>
+    <NotKnow/>
+  <footer></footer>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Main from './components/Main.vue'
+import NotKnow from './components/NotKnow.vue'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    Main,
+    NotKnow
   }
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
