@@ -1,3 +1,5 @@
 /venv/
 /frontend/new_site/node_modules/
 /.idea/
+/frontend/.idea
+/backend/.idea
