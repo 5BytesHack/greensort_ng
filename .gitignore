@@ -1,4 +1,3 @@
 /venv/
 /frontend/new_site/node_modules/
-/frontend/new_site/.idea/
-/frontend/new_site/package-lock.json
+/.idea/
