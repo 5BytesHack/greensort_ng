@@ -2,7 +2,7 @@ import openpyxl as xls
 import pymongo
 import json
 
-with open('static/datafile.json') as f:
+with open('static/datafile.json', encoding='utf-8') as f:
     datavars = json.load(f)
 
 wb = xls.load_workbook(datavars['workbook'])
