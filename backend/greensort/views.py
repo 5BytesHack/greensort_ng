@@ -20,7 +20,7 @@ async def get_by_id(request: web.Request):
     else:
         form = request.query
     id = int(form['id'])
-    client = AsyncIOMotorClient('host.docker.internal', 27017)
+    client = AsyncIOMotorClient('localhost', 27017)
     db = client.db
     collection = db.trashers
     trashers = []
@@ -41,7 +41,7 @@ async def get_by_id_and_location(request):
     latitude = form.get('latitude')
     longitude = form.get('longitude')
     coords = latitude + ',' + longitude
-    client = AsyncIOMotorClient('host.docker.internal', 27017)
+    client = AsyncIOMotorClient('localhost', 27017)
     db = client.db
     collection = db.trashers
     m = 100000.0
