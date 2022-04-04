@@ -23,9 +23,8 @@ async def get_by_id(request: web.Request):
     client = AsyncIOMotorClient('localhost', 27017)
     db = client.db
     collection = db.trashers
-    data_cursor = collection.find({'types': id})
     trashers = []
-    async for obj in data_cursor:
+    async for obj in collection.find({'types': id}):
         trashers.append({
             'address': obj['address'],
             'coords': obj['coords']
@@ -45,11 +44,10 @@ async def get_by_id_and_location(request):
     client = AsyncIOMotorClient('localhost', 27017)
     db = client.db
     collection = db.trashers
-    data_cursor = collection.find({'types': id})
     m = 100000.0
     trashers = []
     neariest = None
-    async for obj in data_cursor:
+    async for obj in collection.find({'types': id}):
         trashers.append({
             'address': obj['address'],
             'coords': obj['coords']
