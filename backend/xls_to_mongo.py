@@ -12,6 +12,7 @@ db = con.db
 collection = db.trashers
 r = []
 for row in ws.iter_rows(min_row=2):
+    adress = row[0].value.replace('\n', ' ')
     d = {
         'address': row[0].value,
         'coords': row[1].value
