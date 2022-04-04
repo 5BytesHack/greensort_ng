@@ -1,6 +1,7 @@
 FROM python:3.8.13-alpine3.14
 ENV PYTHONUNBUFFERED 1
 ENV IN_DOCKER 1
+ENV MONGO_HOST "host.docker.internal"
 
 COPY requirements.txt /requirements.txt
 
