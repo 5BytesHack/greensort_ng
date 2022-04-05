@@ -6,7 +6,7 @@ services:
     ports:
       - 80:8080
     volumes:
-      - ./main
+      - ./:/main
   mongo:
     image: mongo:4.0.10
     ports:
