@@ -13,4 +13,6 @@ cors = setup(app, defaults={
         allow_methods='*'
     )
 })
+for route in list(app.router.routes()):
+    cors.add(route)
 web.run_app(app)
