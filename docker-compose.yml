@@ -1,0 +1,15 @@
+version: '3.5'
+services:
+  web:
+    build:
+      context: backend
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./:/main
+  mongo:
+    image: mongo:4.0.10
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./db_data:/data/db
