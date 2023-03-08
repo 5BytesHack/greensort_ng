@@ -1,15 +1,11 @@
 import openpyxl as xls
 import pymongo
-import json
 
 
 def main():
-    with open('static/datafile.json', encoding='utf-8') as f:
-        datavars = json.load(f)
-
-    wb = xls.load_workbook(datavars['workbook'])
-    ws = wb[datavars['worksheet']]
-    con = pymongo.MongoClient(host='localhost', port=27017)
+    wb = xls.load_workbook("app/finishe(8).xlsm")
+    ws = wb["Лист1"]
+    con = pymongo.MongoClient(host='mongo', port=27017)
     db = con.db
     collection = db.trashers
     r = []

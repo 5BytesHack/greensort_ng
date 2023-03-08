@@ -3,5 +3,5 @@
 /.idea/
 /frontend/new_site/.idea/
 /frontend/.idea
-/backend/.idea
+/app/.idea
 /frontend/new_site/package-lock.json

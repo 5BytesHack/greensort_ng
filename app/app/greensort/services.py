@@ -12,7 +12,6 @@ def distance_between_coords(coord0, coord1):
 
 
 async def get_by_id(id):
-    """Получает в форме POST запросом id типа мусора и возвращает json из всех подходящих мусорок"""
     client = AsyncIOMotorClient('mongo', 27017)
     db = client.db
     collection = db.trashers
