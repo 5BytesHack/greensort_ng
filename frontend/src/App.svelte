@@ -1,73 +1,52 @@
-<svelte:head>
-	<title>Map example</title>
-	<script src='https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=cf1b8beb-bb0c-4563-9d28-c603002dd2ad'
-			type="text/javascript" on:load={() => ymaps.ready(loadMap)}>
-	</script>
-</svelte:head>
-
 <script>
 	import Router from "svelte-spa-router";
-	import Main from "routes/Main.svelte";
-	import Map from "routes/Map.svelte";
-	import UserMap from "routes/UserMap.svelte";
-	import {onMount} from "svelte";
+	import Map from "./routes/Map.svelte";
+	import UserMap from "./routes/UserMap.svelte";
 
+	export let fractions;
+	export let markings;
 	const routes = {
-		'/': Main,
 		'/map': Map,
 		'/umap': UserMap,
 	}
-
-	export let locations = [{
-		latitude: 55.75361503443606,
-		longitude: 37.620883000000006,
-		name: 'Test point'
-	}];
-	export let center = [55.75361503443606, 37.620883000000006];
-	export let zoom = 17;
-	let Loaded = false;
-	function loadMap() {
-		var myMap = new ymaps.Map("map", {
-			center: center,
-			zoom: zoom
-		});
-		// Создаем геообъект с типом геометрии "Точка".
-		const points = myMap.geoObjects;
-		locations.forEach(location => {
-			points.add(new ymaps.Placemark(
-					[location.latitude, location.longitude],
-					{balloonContent: location.name},
-					{
-					}));
-		});
-		Loaded = true;
-	}
-	function getUserLocation() {
-		var location = ymaps.geolocation.get();
-
-		location.then(
-				function(result) {
-					// Добавление местоположения на карту.
-					myMap.geoObjects.add(result.geoObjects)
-				},
-				function(err) {
-					console.log('Ошибка: ' + err)
-				}
-		);
-	}
 </script>
 
-<Router {routes}/>
-<div>
-	{#if Loaded === false}
-		<h1>Loading...</h1>
-	{/if}
-</div>
-<div id="map"></div>
+
+<main>
+	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+		<div class="collapse navbar-collapse" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="/#/map">По материалу</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/#/umap">По маркировке</a>
+				</li>
+			</ul>
+		</div>
+	</nav>
+	<h1>Веб приложение для поиска точки сбора определённых отходов</h1>
+	<Router {routes}/>
+</main>
+
+
 
 <style>
-	#map {
-		width: 720px;
-		height: 540px;
+	main {
+		text-align: center;
+		padding: 1em;
+		max-width: 240px;
+		margin: 0 auto;
+	}
+	h1 {
+		color: #ff3e00;
+		text-transform: uppercase;
+		font-size: 4em;
+		font-weight: 100;
+	}
+	@media (min-width: 640px) {
+		main {
+			max-width: none;
+		}
 	}
 </style>

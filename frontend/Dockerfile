@@ -2,7 +2,7 @@ FROM node:lts-alpine as build-stage
 WORKDIR /app
 COPY package*.json ./
 RUN npm install
-COPY new_site .
+COPY . .
 RUN npm run-script build
 
 # этап production (production-stage)
