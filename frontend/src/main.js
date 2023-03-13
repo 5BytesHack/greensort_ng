@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const app = new App({
 	target: document.body,
 	props: {
-		base_url: 'localhost:8000',
+		base_url: 'web:8000',
 		fractions: [
 			{
 				"id": 1,
