@@ -8,7 +8,7 @@
 <script>
     import axios from "axios";
 
-    let url = "http://localhost:8000/id/"
+    let url = "http://web:8000/id/"
     //export let markings;
     const fractions = [
         {
