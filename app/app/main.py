@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from .greensort.routes import api_router
+from app.greensort.routes import api_router
 
 app = FastAPI()
 

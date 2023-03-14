@@ -3,3 +3,5 @@ motor
 pymongo
 openpyxl
 uvicorn
+httpx
+pytest

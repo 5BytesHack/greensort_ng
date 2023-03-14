@@ -10,10 +10,10 @@ def main():
     collection = db.trashers
     r = []
     for row in ws.iter_rows(min_row=2):
-        adress = row[0].value.replace('\n', ' ')
+        address = row[0].value.replace('\n', ' ')
         d = {
-            'address': row[0].value,
-            'coords': row[1].value
+            'address': address.value,
+            'coords': address.value
         }
         c = []
         for i in range(3, 16):
@@ -21,7 +21,7 @@ def main():
                 c.append(i - 2)
         d['types'] = c
         r.append(pymongo.InsertOne(d))
-    res = collection.bulk_write(r)
+    collection.bulk_write(r)
     con.close()
 
 
