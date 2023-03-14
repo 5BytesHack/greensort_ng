@@ -26,7 +26,7 @@ jobs:
           python-version: "3.9.12"
           architecture: x64
       - name: dependencies
-        run: pip install -r app/requirement.txt
+        run: pip install -r requirements.txt
         working-directory: ./app
       - name: linter
         run: flake8 --statistics
