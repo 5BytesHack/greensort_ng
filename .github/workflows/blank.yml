@@ -32,7 +32,7 @@ jobs:
         run: flake8 app --statistics
         working-directory: ./app
       - name: test
-        run: pytest -v --cov=app
+        run: pytest
         working-directory: ./app
 
   build-app:
