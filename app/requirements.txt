@@ -5,3 +5,4 @@ openpyxl
 uvicorn
 httpx
 pytest
+flake8
