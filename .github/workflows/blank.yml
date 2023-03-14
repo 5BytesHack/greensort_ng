@@ -39,13 +39,12 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - name: Run command on remote server
-        uses: D3rHase/ssh-command-action@v0.2.2
+        uses: appleboy/ssh-action@master
         with:
           host: ${{secrets.SSH_HOST}}
           user: ${{secrets.SSH_USER}}
-          host_fingerprint: ${{secrets.SSH_FINGERPRINT}}
-          private_key: ${{secrets.SSH_PRIVATE_KEY}}
-          command: |
+          password: ${{secrets.SSH_PASSWORD}}
+          script: |
             cd ${{ secrets.PROJECT_FOLDER }};
             git checkout main;
             git pull;
