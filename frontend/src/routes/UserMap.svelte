@@ -76,7 +76,10 @@
     ];
     export let locations = [];
     let id;
-    async function get_coords() {
+    export let center = [45.0448, 38.976];
+    export let zoom = 13;
+    let Loaded = false;
+    async function loadMap() {
         let c = await axios.get(url, {
             "params": {
                 "id": id
@@ -90,11 +93,6 @@
                 name: c.data.trashers[i].address
             })
         }
-    }
-    export let center = [45.0448, 38.976];
-    export let zoom = 13;
-    let Loaded = false;
-    function loadMap() {
         var myMap = new ymaps.Map("map", {
             center: center,
             zoom: zoom
@@ -124,7 +122,7 @@
     <form>
         <div class="form-group">
             <label for="exampleFormControlSelect1">Выберите маркировку</label>
-            <select bind:value={id} on:change={get_coords} class="form-control" id="exampleFormControlSelect1">
+            <select bind:value={id} class="form-control" id="exampleFormControlSelect1">
                 {#each fractions as fraction}
                     <option value={fraction.id}>{fraction.type}</option>
                 {/each}
