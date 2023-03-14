@@ -9,9 +9,19 @@ services:
       - ./app/:/app/
     ports:
       - "8000:8000"
+    depends_on:
+      - mongo
   mongo:
     image: mongo:4.0.10
     ports:
       - "27017:27017"
     volumes:
       - ./db_data:/data/db
+  frontend:
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    depends_on:
+      - web
