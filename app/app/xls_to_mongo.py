@@ -12,8 +12,8 @@ def main():
     for row in ws.iter_rows(min_row=2):
         address = row[0].value.replace('\n', ' ')
         d = {
-            'address': address.value,
-            'coords': address.value
+            'address': address,
+            'coords': address
         }
         c = []
         for i in range(3, 16):
