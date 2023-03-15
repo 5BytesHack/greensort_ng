@@ -48,6 +48,6 @@ jobs:
             cd ${{ secrets.PROJECT_FOLDER }}
             git checkout main
             git pull
-            docker-compose down
+            docker-compose down -v
             docker-compose up -d --build
             docker-compose exec web python app/xls_to_mongo.py
