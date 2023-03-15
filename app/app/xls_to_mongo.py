@@ -13,7 +13,7 @@ def main():
         address = row[0].value.replace('\n', ' ')
         d = {
             'address': address,
-            'coords': address
+            'coords': row[1].value
         }
         c = []
         for i in range(3, 16):
