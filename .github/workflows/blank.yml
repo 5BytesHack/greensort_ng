@@ -49,5 +49,6 @@ jobs:
             git checkout main
             git pull
             docker-compose down -v
+            rm -r db_data
             docker-compose up -d --build
             docker-compose exec web python app/xls_to_mongo.py
